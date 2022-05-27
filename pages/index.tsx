@@ -6,10 +6,12 @@ import { modalState } from '../atoms/modalAtom'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Modal from '../components/Modal'
+import Plans from '../components/Plans'
 import Row from '../components/Row'
 import useAuth from '../hooks/useAuth'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
+import { useRouter } from 'next/router'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -35,13 +37,23 @@ const Home = ({
 }: Props) => {
   const { loading } = useAuth()
   const showModal = useRecoilValue(modalState)
+  const subscribed = false
+  const router = useRouter()
 
-  if (loading) return 'Loading...'
+  // if (loading || subscribed == null) return 'Loading...'
+
+  // if (!subscribed) {
+  //   router.push('/signup/platform')
+  // }
+
   return (
     <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
         <title>Home - Netflix</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="shortcut icon"
+          href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico"
+        ></link>
       </Head>
       <Header />
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">

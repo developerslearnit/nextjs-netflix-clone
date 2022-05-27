@@ -43,7 +43,7 @@ const Header = () => {
         <p className="hidden lg:inline">Kids</p>
 
         <BellIcon className="h-6 w-6" onClick={logout} />
-        <Link href="/account">
+        <Link href="/auth/login">
           <img
             src="https://rb.gy/g1pwyx"
             alt=""
